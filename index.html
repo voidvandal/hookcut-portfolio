@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<title>HookCut Studio — Creative Portfolio 2026</title>
+<meta name="description" content="HookCut Studio: short-form, motion graphics, ad creatives and long-form video editing for brands and creators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f2ee;--ink:#11141b;--accent:#ff5c2e;--mute:#6d6b66;--line:#dcdad5;--gut:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter Tight',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+
+nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px var(--gut);background:rgba(244,242,238,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .logo{font-weight:800;letter-spacing:-.04em;font-size:20px;display:flex;align-items:center;gap:10px}
+nav .logo img{width:30px;height:30px;border-radius:8px}
+nav .links{display:flex;gap:26px;font-size:14px;font-weight:500;align-items:center}
+nav .links a:hover{color:var(--accent)}
+nav .hire{background:var(--accent);color:#fff;padding:8px 16px;border-radius:99px}
+nav .links a.hire:hover{color:#fff;opacity:.85}
+@media(max-width:640px){nav .links a:not(.hire){display:none}}
+.star{position:absolute;font-size:22px;color:var(--accent)}
+.star.l{left:var(--gut);top:100px}.star.r{right:var(--gut);top:100px}
+
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px var(--gut) 80px;position:relative}
+.mark{display:flex;align-items:center;gap:clamp(14px,2.4vw,34px)}
+.glyph{height:clamp(96px,15vw,210px);width:auto;flex:none;overflow:visible}
+.glyph path{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.hero:hover .glyph .o{transform:translate(18px,-10px)}
+.hero:hover .glyph .w{transform:translate(10px,8px)}
+.hero h1{font-size:clamp(54px,11vw,170px);font-weight:800;line-height:.86;letter-spacing:-.065em;text-align:left}
+.hero .sub{margin-top:28px;font-size:12px;color:var(--mute)}
+.hero .sub b{color:var(--ink);font-weight:700}
+.chev{position:absolute;bottom:34px;animation:bob 1.8s ease-in-out infinite;color:var(--mute)}
+@keyframes bob{50%{transform:translateY(8px)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 var(--gut)}
+.stats div{padding:30px 0 30px 20px;border-left:1px solid var(--line)}
+.stats div:first-child{border-left:0;padding-left:0}
+.stats strong{display:block;font-size:clamp(22px,3vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1.05}
+.stats span{font-size:13px;color:var(--mute)}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}.stats div:nth-child(3){border-left:0;padding-left:0}}
+
+.sec{padding:clamp(80px,12vw,180px) var(--gut) 0}
+.feature{display:grid;grid-template-columns:1fr minmax(260px,420px) 1fr;gap:clamp(20px,4vw,60px);align-items:center}
+.feature.wide{grid-template-columns:1fr 1.5fr}
+.feature h2{font-size:clamp(46px,7.2vw,112px);font-weight:800;line-height:.86;letter-spacing:-.06em}
+.feature p{margin-top:22px;font-size:13px;line-height:1.5;color:#2a2926;max-width:300px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.tags span{font-size:11px;border:1px solid var(--accent);color:var(--accent);border-radius:99px;padding:4px 10px}
+@media(max-width:860px){.feature,.feature.wide{grid-template-columns:1fr}.feature>.tile{max-width:380px;margin:0 auto;width:100%}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.4vw,18px)}
+.grid.wide{grid-template-columns:repeat(2,1fr)}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)!important}}
+.band{margin:clamp(40px,6vw,90px) calc(var(--gut) * -1) 0;padding:clamp(10px,1.6vw,22px) var(--gut)}
+
+.tile{position:relative;aspect-ratio:9/16;border-radius:6px;overflow:hidden;background:var(--ink);cursor:pointer;isolation:isolate;transform:translateZ(0)}
+.tile.h{aspect-ratio:16/9}
+.tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.tile .meta{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:14px;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;font-size:11px;background:linear-gradient(transparent,rgba(0,0,0,.55));opacity:0;transition:.3s}
+.tile:hover .meta{opacity:1}
+.tile .bar{position:absolute;left:0;bottom:0;height:3px;background:var(--accent);z-index:4;width:0;animation:prog 8s linear infinite}
+@keyframes prog{to{width:100%}}
+
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.9);display:none;align-items:center;justify-content:center;gap:clamp(20px,4vw,60px);padding:24px;backdrop-filter:blur(8px)}
+.lb.on{display:flex}
+.lb .stage{height:min(86vh,calc(90vw*16/9));aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;background:#000}
+.lb .stage.h{aspect-ratio:16/9;height:auto;width:min(70vw,1100px)}
+.lb .stage .tile{position:absolute;inset:0;border-radius:0;aspect-ratio:auto;cursor:default}
+.lb .info{color:#fff;max-width:300px}
+.lb .info h3{font-size:44px;font-weight:800;letter-spacing:-.05em;line-height:.9}
+.lb .info p{font-size:13px;opacity:.7;margin-top:14px;line-height:1.5}
+.lb .info dl{margin-top:22px;font-size:12px;display:grid;grid-template-columns:auto 1fr;gap:8px 18px}
+.lb .info dt{opacity:.5}
+.lb .x{position:absolute;top:22px;right:28px;color:#fff;font-size:30px;cursor:pointer;background:none;border:0}
+@media(max-width:800px){.lb{flex-direction:column}.lb .info{display:none}}
+
+.process{padding:clamp(100px,14vw,200px) var(--gut) 0}
+.process h2,.cta h2{font-size:clamp(46px,9vw,150px);font-weight:800;line-height:.86;letter-spacing:-.065em}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border-top:1px solid var(--ink)}
+.steps div{padding:22px 20px 0 0}
+.steps small{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:11px}
+.steps h4{font-size:24px;font-weight:700;letter-spacing:-.03em;margin:10px 0 8px}
+.steps p{font-size:13px;color:#3a3935;line-height:1.5}
+@media(max-width:800px){.steps{grid-template-columns:1fr 1fr}.steps div{padding-bottom:24px}}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:50px}
+.tools span{border:1px solid var(--ink);border-radius:99px;padding:9px 18px;font-weight:500;font-size:14px;transition:.25s}
+.tools span:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+.cta{padding:clamp(100px,14vw,200px) var(--gut) 40px;text-align:center}
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:44px;background:var(--accent);color:#fff;padding:20px 34px;border-radius:99px;font-size:18px;font-weight:700;letter-spacing:-.02em;transition:transform .25s}
+.btn:hover{transform:scale(1.05) rotate(-1deg)}
+.contacts{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:30px;font-size:14px;color:var(--mute)}
+.contacts a:hover{color:var(--ink)}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:30px var(--gut);font-size:12px;color:var(--mute);border-top:1px solid var(--line)}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#top" class="logo"><img src="logo.svg" alt="" width="30" height="30"><span id="navName"></span></a>
+  <div class="links"><a href="#motion">Work</a><a href="#process">Process</a><a class="hire" href="#contact">Hire us ↗</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <span class="star l">✺</span><span class="star r">+</span>
+  <div class="mark">
+    <svg class="glyph" viewBox="350 250 450 520" aria-label="logo"><path class="o" d="M368 272 664 438 368 572Z" fill="#ff5c2e"/><path class="w" d="M376 592 672 458 784 522 376 752Z" fill="#11141b"/></svg>
+    <h1>Creative<br>Portfolio.</h1>
+  </div>
+  <p class="sub mono">a showcase of <b id="heroName"></b> selected works.</p>
+  <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</header>
+
+<section class="stats reveal">
+  <div><strong>Reels &amp; Shorts</strong><span>hooks that hold attention</span></div>
+  <div><strong>Motion Graphics</strong><span>type, shapes and logo stings</span></div>
+  <div><strong>Ad Creatives</strong><span>built to convert, tested in variants</span></div>
+  <div><strong>Long Form</strong><span>YouTube, podcasts, brand films</span></div>
+</section>
+
+<div id="sections"></div>
+
+<section class="process" id="process">
+  <h2 class="reveal">How we<br>work.</h2>
+  <div class="steps reveal">
+    <div><small>01</small><h4>Brief</h4><p>Send raw footage, references and goals. We reply with a plan within 24 hours.</p></div>
+    <div><small>02</small><h4>Rough cut</h4><p>Story, pacing and hooks locked first. Music and structure before polish.</p></div>
+    <div><small>03</small><h4>Polish</h4><p>Colour, sound, motion graphics, captions and platform-specific exports.</p></div>
+    <div><small>04</small><h4>Deliver</h4><p>Two rounds of revisions included. Files ready for Reels, Shorts, TikTok and YouTube.</p></div>
+  </div>
+  <div class="tools reveal" id="tools"></div>
+</section>
+
+<section class="cta" id="contact">
+  <h2 class="reveal">Let’s cut<br>something great.</h2>
+  <a class="btn reveal" id="mailBtn" href="#">Start a project <span>↗</span></a>
+  <div class="contacts reveal" id="contacts"></div>
+</section>
+
+<footer><span id="footName"></span><span>Portfolio 2026 · All rights reserved</span></footer>
+
+<div class="lb" id="lb">
+  <button class="x" aria-label="Close">×</button>
+  <div class="stage" id="stage"></div>
+  <div class="info" id="info"></div>
+</div>
+
+<script>
+/* ============================================================
+   1. EDIT THIS BLOCK — your agency details
+   ============================================================ */
+const CONFIG = {
+  name: "HookCut Studio",
+  email: "studiohookcut@gmail.com",
+  phone: "+91 95183 66495",
+  whatsapp: "919518366495",                  // country code + number, no + or spaces
+  waMessage: "Hi HookCut Studio! I saw your portfolio and I want to start a project.",
+  links: [
+    {label:"Instagram", href:"https://www.instagram.com/studio.hookcut/"}
+  ],
+  tools: ["Premiere Pro","After Effects","CapCut Pro"]
+};
+
+/* ============================================================
+   2. YOUR WORK. Videos live in the clips/ folder, named after the
+      title (lower-case, dashes).  To use your own video instead,
+      add  video:"clips/my-video.mp4"  to any item.
+      Videos always play muted, looping, only when on screen.
+   ============================================================ */
+const SECTIONS = [
+  { id:"motion", title:"Motion<br>Graphic.", bg:"#ff5c2e", ratio:"v",
+    text:"Engaging motion visuals for social media and commercial use: overlays, glitch transitions and animated captions that match the brand’s tone and rhythm.",
+    tags:["Overlays","Glitch","Animated captions"],
+    works:[
+      {brand:"Product Explainer", video:"clips/product-explainer.mp4", kind:"Motion Graphic · 3D overlay", role:"Edit, 3D overlay, sound"},
+      {brand:"Chai Glitch Reel",  video:"clips/chai-glitch-reel.mp4",  kind:"Reel · Transitions", role:"Edit, glitch transitions, captions"},
+      {brand:"Lassi Reaction",    video:"clips/lassi-reaction.mp4",    kind:"Reel · Captions", role:"Edit, pop-up captions"}
+    ]},
+  { id:"short", title:"Short<br>Content.", bg:"#11141b", ratio:"v",
+    text:"Reels, TikToks and Shorts cut for retention: sharp hooks, stickers, captions and pacing that stops the scroll in the first second.",
+    tags:["Reels","Captions","Stickers","Hooks"],
+    works:[
+      {brand:"Street Food Review 01", video:"clips/street-food-review-01.mp4", kind:"Reel · Street Food", role:"Edit, captions, stickers"},
+      {brand:"Street Food Review 02", video:"clips/street-food-review-02.mp4", kind:"Reel · Street Food", role:"Edit, captions, stickers"},
+      {brand:"Street Food Review 03", video:"clips/street-food-review-03.mp4", kind:"Reel · Street Food", role:"Edit, captions, stickers"},
+      {brand:"Street Food Review 04", video:"clips/street-food-review-04.mp4", kind:"Reel · Street Food", role:"Edit, captions, stickers"},
+      {brand:"Street Food Review 05", video:"clips/street-food-review-05.mp4", kind:"Reel · Street Food", role:"Edit, captions, stickers"}
+    ]},
+  { id:"ads", title:"Brand<br>Ads.", bg:"#ffb199", ratio:"v",
+    text:"Promo content for food, drink and local brands. Hook, product, proof and call to action, cut to hold attention.",
+    tags:["Food &amp; drink","Promo","Kinetic captions"],
+    works:[
+      {brand:"Café Drink Promo",  video:"clips/cafe-drink-promo.mp4",  kind:"Promo · Café", role:"Edit, kinetic captions"},
+      {brand:"Public Opinion Reel", video:"clips/public-opinion-reel.mp4", kind:"Promo · Street", role:"Edit, captions"},
+      {brand:"Food Taste Test",   video:"clips/food-taste-test.mp4",   kind:"Promo · Food", role:"Edit, captions, stickers"}
+    ]},
+  { id:"long", title:"Long<br>Form.", bg:"#e6e2da", ratio:"h",
+    text:"Event recaps, brand films and YouTube videos. Story-first editing with clean audio, captions and pacing.",
+    tags:["Event recap","YouTube","Brand film"],
+    works:[
+      {brand:"Festival Recap", video:"clips/festival-recap.mp4", kind:"Event Recap", role:"Edit, captions, sound"}
+    ]}
+];
+
+/* ============================================================
+   3. ENGINE
+   ============================================================ */
+const $ = s => document.querySelector(s);
+["navName","heroName","footName"].forEach(id=>$("#"+id).textContent = id==="heroName" ? CONFIG.name+"’s" : CONFIG.name);
+const WA="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(CONFIG.waMessage);
+document.querySelectorAll("#mailBtn,nav .hire").forEach(a=>{a.href=WA;a.target="_blank";a.rel="noopener"});
+$("#contacts").innerHTML = `<a href="mailto:${CONFIG.email}">${CONFIG.email}</a><a href="${WA}" target="_blank" rel="noopener">${CONFIG.phone}</a><a href="${WA}" target="_blank" rel="noopener">WhatsApp ↗</a>` + CONFIG.links.map(l=>`<a href="${l.href}" target="_blank" rel="noopener">${l.label} ↗</a>`).join("");
+$("#tools").innerHTML = CONFIG.tools.map(t=>`<span>${t}</span>`).join("");
+
+const slug=b=>b.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const CLIP=w=>w.video||`clips/${slug(w.brand)}.mp4`;
+const POSTER=w=>CLIP(w).replace(/\.\w+$/,'.jpg');
+const tileHTML=(w,horiz,lb)=>`<div class="tile ${horiz?'h':''}" data-brand="${w.brand}">
+  <video src="${CLIP(w)}" poster="${POSTER(w)}" ${lb?'autoplay':'data-lazy preload="metadata"'} muted loop playsinline disablepictureinpicture></video>
+  <div class="meta"><b>${w.brand}</b><span>${w.kind}</span></div><div class="bar"></div></div>`;
+
+const root=$("#sections");
+SECTIONS.forEach(sec=>{
+  const horiz=sec.ratio==="h",hero=sec.works[0],rest=sec.works.slice(1);
+  root.insertAdjacentHTML("beforeend",`
+  <section class="sec" id="${sec.id}">
+    <div class="feature ${horiz?'wide':''} reveal">
+      <div><h2>${sec.title}</h2><p>${sec.text}</p><div class="tags">${sec.tags.map(t=>`<span>${t}</span>`).join("")}</div></div>
+      ${horiz?`<div class="grid wide" style="grid-template-columns:repeat(${Math.min(sec.works.length,2)},1fr)">${sec.works.map(w=>tileHTML(w,true)).join("")}</div>`:tileHTML(hero,false)}
+      ${horiz?"":"<div></div>"}
+    </div>
+    ${horiz?"":`<div class="band" style="background:${sec.bg}"><div class="grid reveal" style="grid-template-columns:repeat(${rest.length>=5?3:rest.length===4?4:Math.max(rest.length,1)},1fr)">${rest.map(w=>tileHTML(w,false)).join("")}</div></div>`}
+  </section>`);
+});
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* play videos only while visible (muted, looping) */
+const tryPlay=v=>{v.muted=true;const p=v.play();p&&p.catch(()=>{})};
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;v.dataset.vis=e.isIntersecting?"1":"";e.isIntersecting?tryPlay(v):v.pause()}),{rootMargin:"200px"});
+document.querySelectorAll("video[data-lazy]").forEach(v=>{vio.observe(v);v.addEventListener("canplay",()=>v.dataset.vis&&v.paused&&tryPlay(v))});
+let rt;["scroll","pointerdown","touchstart"].forEach(ev=>addEventListener(ev,()=>{clearTimeout(rt);rt=setTimeout(()=>document.querySelectorAll("video[data-lazy]").forEach(v=>v.dataset.vis&&v.paused&&tryPlay(v)),120)},{passive:true}));
+
+/* lightbox (also muted, no sound) */
+const lb=$("#lb"),stage=$("#stage"),info=$("#info");
+const all=SECTIONS.flatMap(s=>s.works.map(w=>({...w,horiz:s.ratio==="h"})));
+document.addEventListener("click",e=>{
+  const t=e.target.closest(".tile");if(!t||t.closest(".lb"))return;
+  const w=all.find(x=>x.brand===t.dataset.brand);if(!w)return;
+  stage.className="stage"+(w.horiz?" h":"");stage.innerHTML=tileHTML(w,w.horiz,true);
+  info.innerHTML=`<h3>${w.brand}</h3><p>${w.kind}. Edited by ${CONFIG.name}.</p><dl><dt>Type</dt><dd>${w.kind}</dd><dt>Role</dt><dd>${w.role}</dd></dl>`;
+  lb.classList.add("on");
+});
+const close=()=>{lb.classList.remove("on");stage.innerHTML=""};
+lb.addEventListener("click",e=>{if(e.target===lb||e.target.classList.contains("x"))close()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+</script>
+</body>
+</html>
